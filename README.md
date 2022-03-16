@@ -1,4 +1,4 @@
-# Primera-Red-Neuronal
+# Primera Red Neuronal
 Esta es una Red Neuronal muy simple.
 
 El código funciona como una página web común.
