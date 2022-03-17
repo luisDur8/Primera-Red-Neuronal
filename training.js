@@ -1,13 +1,16 @@
 /* ¡Hola! Soy luisDur.
 Este código lo estoy creando el 14 de marzo de 2022.
 
-Los modelos de Redes Neuronales tiene un valor (estado) de activación, cuyo rango normalmente va de (0 a 1) o de (–1 a 1). 
-Esto es así porque, una neurona puede estar totalmente inactiva (0 o –1) o activa (1), por esta razón vamos a dividir los colores rgb entre 255. */
+Los modelos de Redes Neuronales tiene un valor (estado) de activación, 
+cuyo rango normalmente va de (0 a 1) o de (–1 a 1). 
+Esto es así porque, una neurona puede estar totalmente inactiva (0 o –1) o activa (1), 
+por esta razón vamos a dividir los colores rgb entre 255. */
 
 // Inicio de la Red Neuronal.
 var network = new brain.NeuralNetwork();
 
-/* Entrenamiento: darle ejemplos, dado cierto color de Fondo (entrada), asignarle cierto color de Texto (salida). */
+/* Entrenamiento: darle ejemplos, dado cierto color de Fondo (entrada), 
+asignarle cierto color de Texto (salida). */
 network.train([
 
 //********** ESENCIALES **********  
@@ -20,7 +23,7 @@ network.train([
   input: {rojo: 1, verde: 1, azul: 1}, output: {color: 0}
 },
 
-//********** PREFERENCIAS **********/ 
+//********** PREFERENCIAS ********** 
   // Fondo verde -> texto negro.
 {
   input: {rojo: 0, verde: 1, azul: 0}, output: {color: 0}
@@ -36,7 +39,7 @@ network.train([
 ]);
 
 function update(color) {
-  /* Esta opción permite tratar al objeto como si fuera rgb. */
+  // Esta opción permite tratar al objeto como si fuera rgb.
   var rgb = [color.channels.r, color.channels.g, color.channels.b];
   // console.log(rgb);
 
@@ -44,7 +47,8 @@ function update(color) {
   // Color de fondo.
   div.style.background = color.toHEXString(); 
 
-  /* El color de fondo actual (elegido por el usuario) se toma como entrada, con esa entrada la red neuronal hace su prediccion del mejor color de texto. */
+  /* El color de fondo actual (elegido por el usuario) se toma como entrada, 
+  con esa entrada la red neuronal hace su prediccion del mejor color de texto. */
   var entrada = {
     rojo: rgb[0]/255,
     verde: rgb[1]/255,
